@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawWorld — Chats & Chiens</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== CURSOR CUSTOM ========== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== LOADER ========== -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-paws">
+        <span>🐾</span>
+        <span>🐾</span>
+        <span>🐾</span>
+      </div>
+      <p class="loader-text">PawWorld se réveille…</p>
+      <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🐾</span>
+      <span class="logo-text">PawWorld</span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#hero" class="nav-link">Accueil</a>
+      <a href="#chats" class="nav-link">Chats</a>
+      <a href="#chiens" class="nav-link">Chiens</a>
+      <a href="#races" class="nav-link">Races</a>
+      <a href="#soins" class="nav-link">Soins</a>
+      <a href="#quiz" class="nav-link">Quiz</a>
+      <a href="#adoption" class="nav-link">Adoption</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-blob blob-1"></div>
+      <div class="hero-blob blob-2"></div>
+      <div class="hero-blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Bienvenue dans votre univers</p>
+      <h1 class="hero-title reveal">
+        La vie est plus belle<br />
+        avec un <span class="hero-highlight cat-highlight" id="heroWord">chat</span>
+      </h1>
+      <p class="hero-subtitle reveal">
+        Découvrez tout ce qu'il faut savoir sur nos compagnons à quatre pattes —
+        leur histoire, leurs races, leurs besoins et leur amour inconditionnel.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#chats" class="btn btn-primary">Explorer les chats</a>
+        <a href="#chiens" class="btn btn-secondary">Explorer les chiens</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-number" data-target="600">0</span><span>M+</span>
+          <p>Chats dans le monde</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="900">0</span><span>M+</span>
+          <p>Chiens dans le monde</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="340">0</span><span>+</span>
+          <p>Races reconnues</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-images">
+      <div class="hero-img-card card-1 reveal">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=500&fit=crop" alt="Chat orange" />
+        <div class="hero-img-label">🐱 Miou</div>
+      </div>
+      <div class="hero-img-card card-2 reveal">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=500&fit=crop" alt="Golden Retriever" />
+        <div class="hero-img-label">🐶 Woof</div>
+      </div>
+      <div class="hero-img-card card-3 reveal">
+        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&h=300&fit=crop" alt="Chaton" />
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ========== INTRO BAND ========== -->
+  <div class="band">
+    <div class="band-track">
+      <span>🐾 Chats</span><span>•</span>
+      <span>🐾 Chiens</span><span>•</span>
+      <span>🐾 Amour</span><span>•</span>
+      <span>🐾 Soins</span><span>•</span>
+      <span>🐾 Adoption</span><span>•</span>
+      <span>🐾 Races</span><span>•</span>
+      <span>🐾 Chats</span><span>•</span>
+      <span>🐾 Chiens</span><span>•</span>
+      <span>🐾 Amour</span><span>•</span>
+      <span>🐾 Soins</span><span>•</span>
+      <span>🐾 Adoption</span><span>•</span>
+      <span>🐾 Races</span><span>•</span>
+    </div>
+  </div>
+
+  <!-- ========== SECTION CHATS ========== -->
+  <section class="animals-section cats-section" id="chats">
+    <div class="section-header reveal">
+      <span class="section-tag cat-tag">🐱 Félins</span>
+      <h2 class="section-title">L'univers mystérieux<br /><em>des chats</em></h2>
+      <p class="section-desc">
+        Indépendants, curieux et tendres à leur manière — les chats fascinent depuis des millénaires.
+        Découvrez leur monde avec nous.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h3>Un animal de légende</h3>
+        <p>
+          Le chat domestique (<em>Felis catus</em>) est l'un des animaux de compagnie les plus populaires
+          au monde. Domestiqués il y a environ <strong>10 000 ans</strong> au Proche-Orient, les chats
+          ont rapidement gagné une place privilégiée dans les sociétés humaines.
+        </p>
+        <p>
+          Dans l'Égypte antique, ils étaient vénérés comme des dieux. La déesse Bastet, représentée
+          sous forme de chat, symbolisait la protection, la fertilité et la joie. Tuer un chat,
+          même accidentellement, était puni de mort.
+        </p>
+        <p>
+          Aujourd'hui, on dénombre plus de <strong>600 millions de chats</strong> sur la planète,
+          et ils restent l'un des animaux de compagnie les plus appréciés, notamment pour leur
+          caractère indépendant et leur capacité à réduire le stress de leurs propriétaires.
+        </p>
+        <div class="about-facts">
+          <div class="fact-pill">😴 16h de sommeil/jour</div>
+          <div class="fact-pill">👂 Entendent 65 000 Hz</div>
+          <div class="fact-pill">🦴 230 os dans le corps</div>
+          <div class="fact-pill">👅 Ronronnent à 25 Hz</div>
+        </div>
+      </div>
+      <div class="about-gallery cat-gallery reveal">
+        <div class="gallery-main">
+          <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&h=700&fit=crop" alt="Chat tigré" />
+        </div>
+        <div class="gallery-side">
+          <img src="https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=300&h=320&fit=crop" alt="Chat blanc" />
+          <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=300&h=320&fit=crop" alt="Chaton mignon" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Comportements chats -->
+    <div class="behaviors reveal">
+      <h3 class="behaviors-title">Comprendre votre chat</h3>
+      <div class="behaviors-grid">
+        <div class="behavior-card">
+          <div class="behavior-icon">😽</div>
+          <h4>Le ronronnement</h4>
+          <p>Le chat ronronne non seulement quand il est content, mais aussi quand il est stressé ou blessé. Les vibrations du ronron (25-50 Hz) auraient des vertus thérapeutiques et pourraient favoriser la guérison osseuse.</p>
+        </div>
+        <div class="behavior-card">
+          <div class="behavior-icon">🙈</div>
+          <h4>La mimique lente</h4>
+          <p>Quand un chat cligne lentement des yeux en vous regardant, c'est un signe d'affection et de confiance. Vous pouvez lui répondre de la même façon pour renforcer votre lien.</p>
+        </div>
+        <div class="behavior-card">
+          <div class="behavior-icon">🐾</div>
+          <h4>Le pétrissage</h4>
+          <p>Ce comportement, dit "faire du pain", est un vestige du comportement du chaton tétant sa mère. Un chat qui pétrit est détendu et en confiance — c'est un signe d'attachement profond.</p>
+        </div>
+        <div class="behavior-card">
+          <div class="behavior-icon">🎁</div>
+          <h4>Les cadeaux</h4>
+          <p>Si votre chat vous ramène des "cadeaux" (proies), ne vous offusquez pas. Il vous considère comme un membre de sa famille et essaie de vous nourrir ou de vous apprendre à chasser.</p>
+        </div>
+        <div class="behavior-card">
+          <div class="behavior-icon">🌿</div>
+          <h4>Manger de l'herbe</h4>
+          <p>Les chats mangent de l'herbe pour se purger, obtenir des micronutriments ou soulager leur estomac. C'est un comportement naturel qu'il ne faut pas décourager si l'herbe est saine.</p>
+        </div>
+        <div class="behavior-card">
+          <div class="behavior-icon">📦</div>
+          <h4>L'amour des boîtes</h4>
+          <p>Les chats adorent les espaces confinés car ils leur procurent sécurité et chaleur. Dans la nature, les petits espaces permettaient aux félins de se cacher des prédateurs et de guetter leurs proies.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo mosaic chats -->
+    <div class="mosaic reveal">
+      <h3 class="mosaic-title">Galerie photos — Chats du monde</h3>
+      <div class="mosaic-grid cat-mosaic">
+        <div class="mosaic-item tall">
+          <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=400&h=600&fit=crop" alt="Chat persan" />
+          <div class="mosaic-overlay"><span>Persan</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=300&fit=crop" alt="Siamois" />
+          <div class="mosaic-overlay"><span>Siamois</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400&h=300&fit=crop" alt="Chat Bengal" />
+          <div class="mosaic-overlay"><span>Bengal</span></div>
+        </div>
+        <div class="mosaic-item wide">
+          <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=700&h=350&fit=crop" alt="Maine Coon" />
+          <div class="mosaic-overlay"><span>Maine Coon</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=400&h=300&fit=crop" alt="Chaton roux" />
+          <div class="mosaic-overlay"><span>British Shorthair</span></div>
+        </div>
+        <div class="mosaic-item tall">
+          <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=400&h=600&fit=crop" alt="Chat noir" />
+          <div class="mosaic-overlay"><span>Bombay</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION CHIENS ========== -->
+  <section class="animals-section dogs-section" id="chiens">
+    <div class="section-header reveal">
+      <span class="section-tag dog-tag">🐶 Canins</span>
+      <h2 class="section-title">La fidélité sans limites<br /><em>des chiens</em></h2>
+      <p class="section-desc">
+        Loyaux, joueurs et toujours là pour vous — les chiens sont bien plus que des animaux.
+        Ce sont des partenaires de vie.
+      </p>
+    </div>
+
+    <div class="about-grid reverse">
+      <div class="about-gallery dog-gallery reveal">
+        <div class="gallery-main">
+          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&h=700&fit=crop" alt="Golden Retriever heureux" />
+        </div>
+        <div class="gallery-side">
+          <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=300&h=320&fit=crop" alt="Husky" />
+          <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=300&h=320&fit=crop" alt="Labrador" />
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <h3>Le meilleur ami de l'homme</h3>
+        <p>
+          Le chien (<em>Canis lupus familiaris</em>) est le premier animal domestiqué par l'homme,
+          il y a entre <strong>15 000 et 40 000 ans</strong>. Descendant du loup gris, il a évolué
+          pour comprendre et communiquer avec les humains d'une façon unique dans le règne animal.
+        </p>
+        <p>
+          Les chiens peuvent reconnaître leurs propriétaires au son de leur voix, comprendre
+          des centaines de mots et ressentir nos émotions grâce à leur odorat extraordinaire —
+          <strong>10 000 à 100 000 fois plus développé</strong> que celui des humains.
+        </p>
+        <p>
+          De compagnon de chasse à chien de sauvetage, en passant par les chiens-guides,
+          les chiens ont accompagné l'humanité dans toutes ses aventures. Il existe aujourd'hui
+          plus de <strong>350 races officielles</strong> reconnues dans le monde.
+        </p>
+        <div class="about-facts">
+          <div class="fact-pill dog-pill">🐕 15 000 ans d'amitié</div>
+          <div class="fact-pill dog-pill">👃 100 000x plus fort</div>
+          <div class="fact-pill dog-pill">🎓 250 mots compris</div>
+          <div class="fact-pill dog-pill">❤️ 350+ races</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comportements chiens -->
+    <div class="behaviors reveal">
+      <h3 class="behaviors-title">Comprendre votre chien</h3>
+      <div class="behaviors-grid">
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">🐕</div>
+          <h4>Agiter la queue</h4>
+          <p>La direction du balancement a une signification : vers la droite indique des émotions positives, vers la gauche des émotions négatives. La vitesse indique le niveau d'excitation de votre compagnon.</p>
+        </div>
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">🙃</div>
+          <h4>Se rouler dans l'herbe</h4>
+          <p>Votre chien se roule dans des odeurs fortes pour masquer la sienne — un instinct de prédateur. Il peut aussi simplement se gratter le dos ou exprimer sa joie après un bain.</p>
+        </div>
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">👀</div>
+          <h4>Le regard doux</h4>
+          <p>Quand votre chien vous fixe avec des yeux doux, c'est de l'amour pur. Cette interaction libère de l'ocytocine (l'hormone du lien) chez vous deux — une relation unique dans le règne animal.</p>
+        </div>
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">🌀</div>
+          <h4>Tourner avant de s'allonger</h4>
+          <p>Ce comportement vient de leurs ancêtres sauvages qui piétinaient l'herbe pour créer un nid confortable, vérifier la présence d'insectes ou de serpents, et marquer leur territoire.</p>
+        </div>
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">🦴</div>
+          <h4>Enterrer les os</h4>
+          <p>L'instinct de cacher de la nourriture est ancestral. Dans la nature, les loups cachaient les restes de leurs proies pour y revenir plus tard. Votre chien fait pareil avec ses friandises.</p>
+        </div>
+        <div class="behavior-card dog-card">
+          <div class="behavior-icon">🥰</div>
+          <h4>Vous lécher le visage</h4>
+          <p>Les chiots lèchent la gueule de leur mère pour obtenir de la nourriture. Avec vous, c'est un signe de soumission affectueuse, de salutation et d'exploration sensorielle par l'odorat.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo mosaic chiens -->
+    <div class="mosaic reveal">
+      <h3 class="mosaic-title">Galerie photos — Chiens du monde</h3>
+      <div class="mosaic-grid dog-mosaic">
+        <div class="mosaic-item wide">
+          <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=700&h=350&fit=crop" alt="Border Collie" />
+          <div class="mosaic-overlay dog-overlay"><span>Border Collie</span></div>
+        </div>
+        <div class="mosaic-item tall">
+          <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=400&h=600&fit=crop" alt="Berger Allemand" />
+          <div class="mosaic-overlay dog-overlay"><span>Berger Allemand</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=300&fit=crop" alt="Deux chiens" />
+          <div class="mosaic-overlay dog-overlay"><span>Amis pour la vie</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=400&h=300&fit=crop" alt="Chien Husky" />
+          <div class="mosaic-overlay dog-overlay"><span>Husky Sibérien</span></div>
+        </div>
+        <div class="mosaic-item">
+          <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&h=300&fit=crop" alt="Labrador" />
+          <div class="mosaic-overlay dog-overlay"><span>Labrador</span></div>
+        </div>
+        <div class="mosaic-item tall">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=600&fit=crop" alt="Golden Retriever" />
+          <div class="mosaic-overlay dog-overlay"><span>Golden Retriever</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RACES ========== -->
+  <section class="races-section" id="races">
+    <div class="section-header reveal">
+      <span class="section-tag mixed-tag">🌍 Encyclopédie</span>
+      <h2 class="section-title">Les grandes races<br /><em>à la loupe</em></h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-container reveal">
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="cats-races">🐱 Races de chats</button>
+        <button class="tab-btn" data-tab="dogs-races">🐶 Races de chiens</button>
+      </div>
+
+      <div class="tab-content active" id="cats-races">
+        <div class="races-grid">
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=350&h=250&fit=crop" alt="Maine Coon" />
+            </div>
+            <div class="race-info">
+              <h4>Maine Coon</h4>
+              <div class="race-badges">
+                <span class="badge">Grande taille</span>
+                <span class="badge">Poil long</span>
+                <span class="badge">Sociable</span>
+              </div>
+              <p>Originaire de l'État du Maine (USA), c'est l'une des plus grandes races de chats domestiques. Intelligent et doux, il est souvent comparé à un chien par son comportement.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:90%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:70%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=350&h=250&fit=crop" alt="Siamois" />
+            </div>
+            <div class="race-info">
+              <h4>Siamois</h4>
+              <div class="race-badges">
+                <span class="badge">Élégant</span>
+                <span class="badge">Vocal</span>
+                <span class="badge">Curieux</span>
+              </div>
+              <p>Originaire de Thaïlande, le Siamois est l'une des plus anciennes races connues. Reconnaissable à ses yeux bleus et son masque sombre, il est très expressif et communicatif.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:85%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:30%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=350&h=250&fit=crop" alt="British Shorthair" />
+            </div>
+            <div class="race-info">
+              <h4>British Shorthair</h4>
+              <div class="race-badges">
+                <span class="badge">Calme</span>
+                <span class="badge">Placide</span>
+                <span class="badge">Indépendant</span>
+              </div>
+              <p>Rond, charnu et au caractère posé, le British Shorthair est parfait pour les foyers calmes. Il s'entend bien avec les enfants et est peu exigeant en attention.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:65%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:40%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:40%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=350&h=250&fit=crop" alt="Bengal" />
+            </div>
+            <div class="race-info">
+              <h4>Bengal</h4>
+              <div class="race-badges">
+                <span class="badge">Actif</span>
+                <span class="badge">Léopard</span>
+                <span class="badge">Joueur</span>
+              </div>
+              <p>Croisement entre un chat domestique et un léopard asiatique, le Bengal porte une robe sauvage spectaculaire. Très actif et intelligent, il a besoin de stimulation quotidienne.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:80%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:45%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1561948955-570b270e7c36?w=350&h=250&fit=crop&crop=right" alt="Persan" />
+            </div>
+            <div class="race-info">
+              <h4>Persan</h4>
+              <div class="race-badges">
+                <span class="badge">Luxueux</span>
+                <span class="badge">Calme</span>
+                <span class="badge">Affectueux</span>
+              </div>
+              <p>Avec son pelage soyeux et son visage aplati, le Persan est l'image même de l'élégance féline. Il préfère la quiétude et adore se faire caresser sur les genoux de son maître.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:75%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:25%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:95%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=350&h=250&fit=crop" alt="Ragdoll" />
+            </div>
+            <div class="race-info">
+              <h4>Ragdoll</h4>
+              <div class="race-badges">
+                <span class="badge">Docile</span>
+                <span class="badge">Câlin</span>
+                <span class="badge">Famille</span>
+              </div>
+              <p>Le Ragdoll doit son nom à sa tendance à se détendre complètement quand on le porte. Très affectueux et patient, il est idéal avec les enfants et s'adapte à tous les modes de vie.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar"><div class="bar-fill" style="--w:98%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar"><div class="bar-fill" style="--w:50%"></div></div></div>
+                <div class="race-bar-item"><span>Entretien</span><div class="bar"><div class="bar-fill" style="--w:60%"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="dogs-races">
+        <div class="races-grid">
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=350&h=250&fit=crop" alt="Golden Retriever" />
+            </div>
+            <div class="race-info">
+              <h4>Golden Retriever</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Famille</span>
+                <span class="badge">Patient</span>
+                <span class="badge">Intelligent</span>
+              </div>
+              <p>Emblème de la douceur et de la gentillesse canine, le Golden Retriever est un compagnon parfait pour les familles. Facile à éduquer et très affectueux, il est aussi utilisé comme chien-guide.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:99%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:80%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:95%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=350&h=250&fit=crop" alt="Husky Sibérien" />
+            </div>
+            <div class="race-info">
+              <h4>Husky Sibérien</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Endurance</span>
+                <span class="badge">Loup</span>
+                <span class="badge">Actif</span>
+              </div>
+              <p>Avec ses yeux de glace et son pelage épais, le Husky est fascinant. Chien de traîneau né pour courir, il a besoin de grandes quantités d'exercice et adore le froid.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:85%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:99%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:60%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=350&h=250&fit=crop" alt="Berger Allemand" />
+            </div>
+            <div class="race-info">
+              <h4>Berger Allemand</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Travail</span>
+                <span class="badge">Courageux</span>
+                <span class="badge">Loyal</span>
+              </div>
+              <p>L'un des chiens de travail les plus connus, le Berger Allemand excelle en police, armée et en tant que chien de sauvetage. Loyal et protecteur, il est aussi un excellent chien de famille.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:80%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:90%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:98%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=350&h=250&fit=crop" alt="Border Collie" />
+            </div>
+            <div class="race-info">
+              <h4>Border Collie</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Génie</span>
+                <span class="badge">Agility</span>
+                <span class="badge">Herding</span>
+              </div>
+              <p>Considéré comme le chien le plus intelligent au monde, le Border Collie peut apprendre des centaines de mots et de commandes. Il a besoin d'être stimulé mentalement chaque jour.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:75%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:99%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:99%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1912da?w=350&h=250&fit=crop" alt="Labrador" />
+            </div>
+            <div class="race-info">
+              <h4>Labrador Retriever</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Populaire</span>
+                <span class="badge">Gourmand</span>
+                <span class="badge">Nageur</span>
+              </div>
+              <p>Race la plus populaire dans le monde depuis des décennies, le Labrador est jovial, affectueux et extrêmement doux. Il aime l'eau et est souvent utilisé comme chien de thérapie.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:99%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:85%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:90%"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="race-card dog-race">
+            <div class="race-img">
+              <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=350&h=250&fit=crop" alt="Beagle" />
+            </div>
+            <div class="race-info">
+              <h4>Beagle</h4>
+              <div class="race-badges dog-badges">
+                <span class="badge">Odorat++</span>
+                <span class="badge">Curieux</span>
+                <span class="badge">Chasse</span>
+              </div>
+              <p>Petit chasseur au nez infaillible, le Beagle est joueur et curieux. Son odorat exceptionnel en fait un chien de détection très utilisé dans les aéroports et la douane mondiale.</p>
+              <div class="race-bars">
+                <div class="race-bar-item"><span>Sociabilité</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:88%"></div></div></div>
+                <div class="race-bar-item"><span>Énergie</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:75%"></div></div></div>
+                <div class="race-bar-item"><span>Dressage</span><div class="bar dog-bar"><div class="bar-fill dog-fill" style="--w:65%"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOINS ========== -->
+  <section class="soins-section" id="soins">
+    <div class="section-header reveal">
+      <span class="section-tag soins-tag">💚 Santé</span>
+      <h2 class="section-title">Prendre soin de vos<br /><em>compagnons</em></h2>
+      <p class="section-desc">Des conseils pratiques pour que votre animal vive longtemps, en santé et en bonheur.</p>
+    </div>
+
+    <div class="soins-tabs reveal">
+      <button class="soin-tab active" data-soin="alimentation">🍽️ Alimentation</button>
+      <button class="soin-tab" data-soin="sante">🏥 Santé</button>
+      <button class="soin-tab" data-soin="hygiene">🛁 Hygiène</button>
+      <button class="soin-tab" data-soin="activite">🎾 Activité</button>
+    </div>
+
+    <div class="soins-content reveal">
+      <div class="soin-panel active" id="alimentation">
+        <div class="soin-grid">
+          <div class="soin-card">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=200&fit=crop" alt="Chat" />
+            <h4>🐱 Alimentation du chat</h4>
+            <ul>
+              <li>Les chats sont des carnivores stricts — la viande est essentielle</li>
+              <li>Privilégiez une nourriture humide pour l'hydratation</li>
+              <li>Évitez l'oignon, l'ail, le chocolat, le raisin</li>
+              <li>2 repas par jour pour un adulte</li>
+              <li>Toujours de l'eau fraîche disponible</li>
+              <li>Évitez le lait de vache (intolérance lactose)</li>
+            </ul>
+          </div>
+          <div class="soin-card dog-soin">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=200&fit=crop" alt="Chien" />
+            <h4>🐶 Alimentation du chien</h4>
+            <ul>
+              <li>Régime équilibré : protéines, glucides, lipides</li>
+              <li>Croquettes de qualité ou alimentation BARF</li>
+              <li>Jamais de chocolat, de raisins, de xylitol</li>
+              <li>1 à 2 repas par jour selon la taille</li>
+              <li>Adapter les portions au poids et à l'activité</li>
+              <li>Os à mâcher pour l'hygiène dentaire</li>
+            </ul>
+          </div>
+          <div class="soin-info-box">
+            <h4>⚠️ Aliments dangereux communs</h4>
+            <div class="danger-grid">
+              <div class="danger-item">🍫 Chocolat</div>
+              <div class="danger-item">🧅 Oignon & Ail</div>
+              <div class="danger-item">🍇 Raisins</div>
+              <div class="danger-item">🥑 Avocat</div>
+              <div class="danger-item">☕ Caféine</div>
+              <div class="danger-item">🍬 Xylitol</div>
+              <div class="danger-item">🌰 Noix</div>
+              <div class="danger-item">🥛 Lait (chats)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-panel" id="sante">
+        <div class="soin-grid">
+          <div class="soin-card">
+            <h4>🩺 Visites vétérinaires</h4>
+            <p>Un check-up annuel est recommandé pour les animaux jeunes et en bonne santé. À partir de 7 ans, préférez deux visites par an. La détection précoce de maladies peut sauver des vies.</p>
+            <div class="timeline">
+              <div class="timeline-item"><span class="tl-age">2 mois</span><span class="tl-event">Primo-vaccination</span></div>
+              <div class="timeline-item"><span class="tl-age">4 mois</span><span class="tl-event">Rappel vaccin + stérilisation possible</span></div>
+              <div class="timeline-item"><span class="tl-age">6 mois</span><span class="tl-event">Bilan sanguin de base</span></div>
+              <div class="timeline-item"><span class="tl-age">1 an</span><span class="tl-event">Rappel vaccins annuels</span></div>
+              <div class="timeline-item"><span class="tl-age">7 ans+</span><span class="tl-event">Bilan sénior 2x/an</span></div>
+            </div>
+          </div>
+          <div class="soin-card">
+            <h4>💉 Vaccins essentiels</h4>
+            <div class="vaccine-grid">
+              <div class="vaccine-item cat-vaccine">
+                <span class="v-icon">🐱</span>
+                <strong>Chats</strong>
+                <ul><li>Typhus (panleucopénie)</li><li>Coryza</li><li>Leucose (FeLV)</li><li>Rage (obligatoire si sortie)</li></ul>
+              </div>
+              <div class="vaccine-item dog-vaccine">
+                <span class="v-icon">🐶</span>
+                <strong>Chiens</strong>
+                <ul><li>Carré, parvovirose, hépatite</li><li>Leptospirose</li><li>Toux du chenil</li><li>Rage (obligatoire)</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="soin-card full-width">
+            <h4>🦟 Parasites : la prévention est clé</h4>
+            <p>Puces, tiques, vers — ces parasites peuvent causer de graves maladies. Un traitement antiparasitaire mensuel externe (spot-on ou collier) couplé à un vermifuge trimestriel est recommandé pour tous les animaux.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-panel" id="hygiene">
+        <div class="soin-grid">
+          <div class="soin-card">
+            <h4>✂️ Toilettage du chat</h4>
+            <p>Les chats se toilettent eux-mêmes, mais un brossage régulier (surtout pour les races à poil long) prévient les boules de poils et renforce votre lien. Un bain est rarement nécessaire.</p>
+            <ul>
+              <li>Brossage : 2-3x/semaine (poil long), 1x/sem (poil court)</li>
+              <li>Oreilles : vérifier chaque semaine</li>
+              <li>Dents : brossage hebdomadaire idéal</li>
+              <li>Griffes : couper toutes les 3-4 semaines</li>
+            </ul>
+          </div>
+          <div class="soin-card dog-soin">
+            <h4>🛁 Toilettage du chien</h4>
+            <p>Les besoins varient selon la race et le pelage. Un toilettage professionnel est recommandé tous les 2-3 mois pour les races à poil long ou bouclé.</p>
+            <ul>
+              <li>Bain : tous les mois (ou si sale/odorant)</li>
+              <li>Brossage : selon la race, de 2x/sem à quotidien</li>
+              <li>Oreilles : nettoyer régulièrement (surtout races tombantes)</li>
+              <li>Griffes : couper toutes les 4-6 semaines</li>
+              <li>Dents : brossage 2-3x/semaine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="soin-panel" id="activite">
+        <div class="soin-grid">
+          <div class="soin-card">
+            <h4>🎾 Stimulation du chat</h4>
+            <p>Même à l'intérieur, votre chat a besoin de jeu quotidien. Cela prévient l'obésité, réduit le stress et renforce votre lien.</p>
+            <div class="activity-list">
+              <div class="activity-item"><span>🪢</span> Jouet à ficelle (15 min/jour minimum)</div>
+              <div class="activity-item"><span>🔦</span> Pointeur laser (suivi d'un vrai jouet)</div>
+              <div class="activity-item"><span>🗼</span> Arbre à chat et griffoirs</div>
+              <div class="activity-item"><span>🧩</span> Puzzles alimentaires</div>
+              <div class="activity-item"><span>🪟</span> Accès à une fenêtre ou balcon sécurisé</div>
+            </div>
+          </div>
+          <div class="soin-card dog-soin">
+            <h4>🏃 Exercice pour le chien</h4>
+            <p>Les besoins varient énormément selon la race. Un Husky aura besoin de 2h de sport, un Bouledogue de 30 min. Consultez les spécificités de votre race.</p>
+            <div class="activity-list">
+              <div class="activity-item"><span>🚶</span> Promenade quotidienne (min. 30 min)</div>
+              <div class="activity-item"><span>🎾</span> Fetch et jeux d'eau</div>
+              <div class="activity-item"><span>🐕</span> Socialisation avec d'autres chiens</div>
+              <div class="activity-item"><span>🧠</span> Entraînement et apprentissage de tricks</div>
+              <div class="activity-item"><span>🏕️</span> Randonnées et aventures en plein air</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUIZ ========== -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-bg">
+      <div class="quiz-blob q1"></div>
+      <div class="quiz-blob q2"></div>
+    </div>
+    <div class="section-header reveal">
+      <span class="section-tag quiz-tag">🧠 Quiz</span>
+      <h2 class="section-title">Testez vos connaissances<br /><em>animalières !</em></h2>
+    </div>
+    <div class="quiz-container reveal" id="quizContainer">
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        <span class="quiz-progress-text" id="quizProgressText">Question 1 / 10</span>
+      </div>
+      <div class="quiz-question" id="quizQuestion">Chargement...</div>
+      <div class="quiz-answers" id="quizAnswers"></div>
+      <div class="quiz-result" id="quizResult" style="display:none;">
+        <div class="result-emoji" id="resultEmoji"></div>
+        <h3 id="resultTitle"></h3>
+        <p id="resultScore"></p>
+        <button class="btn btn-primary" id="quizRestart">Rejouer 🔄</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUN FACTS ========== -->
+  <section class="facts-section" id="facts">
+    <div class="section-header reveal">
+      <span class="section-tag facts-tag">🌟 Insolite</span>
+      <h2 class="section-title">Le saviez-vous ?<br /><em>Faits étonnants</em></h2>
+    </div>
+    <div class="facts-marquee">
+      <div class="facts-track" id="factsTrack">
+        <div class="fact-card">
+          <span class="fact-emoji">🐱</span>
+          <p>Les chats ne peuvent pas goûter le sucré — ils manquent du récepteur gustatif correspondant.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">🐶</span>
+          <p>Le nez d'un chien est aussi unique qu'une empreinte digitale humaine — aucun deux ne se ressemblent.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-emoji">😺</span>
+          <p>Les chats ont 32 muscles dans chaque oreille et peuvent les faire pivoter à 180 degrés.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">🐕</span>
+          <p>Les chiens peuvent détecter certains cancers et des hypoglycémies grâce à leur odorat.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-emoji">🌙</span>
+          <p>Les chats ont une vision nocturne 6 fois plus performante que celle des humains.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">💤</span>
+          <p>Les chiens rêvent — leurs ondes cérébrales pendant le sommeil ressemblent aux nôtres.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-emoji">🏃</span>
+          <p>Un guépard peut atteindre 113 km/h ; le chat domestique plafonne à 48 km/h.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">🦮</span>
+          <p>Le premier chien dans l'espace était Laïka, une chienne russe, en 1957.</p>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="fact-card">
+          <span class="fact-emoji">🐱</span>
+          <p>Les chats ne peuvent pas goûter le sucré — ils manquent du récepteur gustatif correspondant.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">🐶</span>
+          <p>Le nez d'un chien est aussi unique qu'une empreinte digitale humaine — aucun deux ne se ressemblent.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-emoji">😺</span>
+          <p>Les chats ont 32 muscles dans chaque oreille et peuvent les faire pivoter à 180 degrés.</p>
+        </div>
+        <div class="fact-card dog-fact">
+          <span class="fact-emoji">🐕</span>
+          <p>Les chiens peuvent détecter certains cancers et des hypoglycémies grâce à leur odorat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADOPTION ========== -->
+  <section class="adoption-section" id="adoption">
+    <div class="adoption-bg">
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1400&h=600&fit=crop" alt="Chiens heureux" class="adoption-bg-img" />
+      <div class="adoption-overlay"></div>
+    </div>
+    <div class="adoption-content reveal">
+      <span class="section-tag adoption-tag">❤️ Adoption</span>
+      <h2 class="adoption-title">Adoptez, ne vous fiez<br />pas qu'aux boutiques</h2>
+      <p class="adoption-text">
+        Des millions d'animaux attendent une famille dans les refuges. L'adoption est un geste
+        généreux qui sauve une vie et vous apporte un compagnon reconnaissant pour toujours.
+      </p>
+      <div class="adoption-steps">
+        <div class="adoption-step">
+          <div class="step-num">1</div>
+          <h4>Évaluez votre mode de vie</h4>
+          <p>Appartement ou maison ? Temps libre ? Enfants ? Chaque animal a ses besoins.</p>
+        </div>
+        <div class="adoption-step">
+          <div class="step-num">2</div>
+          <h4>Visitez un refuge local</h4>
+          <p>Rencontrez les animaux et laissez la connexion se faire naturellement.</p>
+        </div>
+        <div class="adoption-step">
+          <div class="step-num">3</div>
+          <h4>Préparez votre foyer</h4>
+          <p>Litière, gamelles, jouets, vétérinaire — préparez tout avant l'arrivée.</p>
+        </div>
+        <div class="adoption-step">
+          <div class="step-num">4</div>
+          <h4>Accueillez avec patience</h4>
+          <p>L'adaptation peut prendre des semaines. Soyez doux et régulier.</p>
+        </div>
+      </div>
+      <a href="https://www.spa.asso.fr" target="_blank" class="btn btn-adoption">Trouver un refuge SPA →</a>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER ========== -->
+  <section class="newsletter-section">
+    <div class="newsletter-content reveal">
+      <h3>🐾 Restez connecté à l'univers PawWorld</h3>
+      <p>Conseils, actualités, photos adorables — chaque semaine dans votre boîte mail.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="votre@email.com" class="newsletter-input" id="nlInput" />
+        <button class="btn btn-nl" id="nlBtn">S'abonner</button>
+      </div>
+      <p class="nl-confirm" id="nlConfirm" style="display:none;">✅ Merci ! Vous recevrez nos actualités bientôt.</p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">🐾 PawWorld</div>
+        <p>Votre référence sur les chats et les chiens — parce que nos animaux méritent le meilleur.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Chats</h5>
+          <a href="#chats">À propos</a>
+          <a href="#races">Races</a>
+          <a href="#soins">Soins</a>
+          <a href="#quiz">Quiz</a>
+        </div>
+        <div class="footer-col">
+          <h5>Chiens</h5>
+          <a href="#chiens">À propos</a>
+          <a href="#races">Races</a>
+          <a href="#soins">Soins</a>
+          <a href="#adoption">Adoption</a>
+        </div>
+        <div class="footer-col">
+          <h5>Ressources</h5>
+          <a href="#">Guide vétérinaire</a>
+          <a href="#">Calendrier vaccins</a>
+          <a href="#">Refuges SPA</a>
+          <a href="#">Urgences animales</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PawWorld. Fait avec ❤️ pour tous les amoureux des animaux. Photos : Unsplash.</p>
+      <p>🚨 Urgence vétérinaire ? <strong>Appelez votre vétérinaire de garde.</strong></p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" title="Haut de page">🐾</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
